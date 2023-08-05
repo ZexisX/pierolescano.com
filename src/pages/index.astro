@@ -5,8 +5,8 @@ import PostList from "../components/PostList.astro";
 import ProjectList from "../components/ProjectList.astro";
 import { projects } from "../data";
 
-const title = "Piero Lescano";
-const description = "Software developer focused on building CLI tools and web applications.";
+const title = "Le Vinh Khang";
+const description = "Frontend Developer from Vietnam with love.";
 
 const posts = await getCollection("blog");
 const favoriteProjects = projects.filter(p => p.favorite);
@@ -16,7 +16,7 @@ const favoriteProjects = projects.filter(p => p.favorite);
   <section class="mb-6">
     <h1 class="mb-6 text-5xl font-black text-blue">{title}</h1>
     <p class="mb-3">
-      I'm a software developer from Peru. I
+      I'm a FrontEnd Developer from Vietnam. I
       <a href="/projects" class="font-semibold text-green decoration-2 underline-offset-4 hover:underline">build</a>
       for the web and
       <a href="/blog" class="font-semibold text-green decoration-2 underline-offset-4 hover:underline">write</a> about it
