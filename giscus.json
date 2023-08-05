@@ -1,5 +1,5 @@
 {
-  "origins": ["pierolescano-com.vercel.app"],
+  "origins": ["blog.levinhkhang.dev", "pierolescano-com.vercel.app"],
   "originsRegex": ["http://localhost:[0-9]+"],
   "defaultCommentOrder": "oldest"
 }
