@@ -1,0 +1,44 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  type: string;
+  image: string;
+  imageAlt: string;
+}
+
+const { title, description, type, image, imageAlt } = Astro.props;
+
+const pageTitle = title === "Piero Lescano" ? title : `${title} | Piero Lescano`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const twitter = "@piero_codes";
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<!-- Basic Tags -->
+{title ? <title>{pageTitle}</title> : null}
+{description ? <meta name="description" content={description} /> : null}
+{image ? <meta name="image" content={imageURL} /> : null}
+
+<!-- Links -->
+<link rel="canonical" href={canonicalURL} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Open Graph Tags -->
+<meta property="og:type" content={type} />
+<link rel="og:url" href={canonicalURL} />
+{title ? <meta name="og:title" content={title} /> : null}
+{description ? <meta name="og:description" content={description} /> : null}
+{image ? <meta name="og:image" content={imageURL} /> : null}
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content={type == "article" && image ? "summary_large_image" : "summary"} />
+<meta name="twitter:site" content={twitter} />
+<meta name="twitter:creator" content={twitter} />
+{title ? <meta name="twitter:title" content={title} /> : null}
+{description ? <meta name="twitter:description" content={description} /> : null}
+{image ? <meta name="twitter:image" content={imageURL} /> : null}
+{imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
